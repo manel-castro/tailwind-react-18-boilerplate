@@ -8,6 +8,11 @@ module.exports = {
     path: path.resolve(__dirname, "dist"), // output folder
     publicPath: "/",
   },
+  devServer: {
+    historyApiFallback: true,
+  },
+  stats: { warnings: false },
+
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
@@ -17,14 +22,6 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: "ts-loader",
-      },
-      {
-        test: /\.css$/,
-        use: [
-          "style-loader",
-          "css-loader", // for styles
-          "postcss-loader",
-        ],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
